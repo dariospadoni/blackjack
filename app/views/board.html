@@ -1,0 +1,26 @@
+<div class="container-fluid board">
+
+  <!-- game control buttons -->
+  <div class="row">
+    <div class="pull-right">
+      <button type="button" ng-show="!playing" ng-click="newGame()" class="btn btn-sm btn-default outline">Deal</button>
+      <button type="button" ng-show="playing" ng-click="reset()" class="btn btn-sm btn-default outline">Clear</button>
+      <button type="button" ng-show="!playing" ng-click="addPlayer()" class="btn outline btn-sm btn-default">Add player</button>
+    </div>
+  </div>
+
+  <!-- dealer deck -->
+  <div class="row">
+    <div class="col-sm-offset-5 col-sm-3 col-md-offset-5 col-md-2 col-xs-12">
+      <dealer-deck></dealer-deck>
+    </div>
+  </div>
+
+  <!-- players decks -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-3 col-md-2" ng-repeat="player in players">
+      <player-deck ng-class="{'inactive':currentPlayer!=$index && playing}" player="player" active="currentPlayer==$index"></player-deck>
+    </div>
+  </div>
+
+</div>

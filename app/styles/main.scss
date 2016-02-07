@@ -1,0 +1,140 @@
+// bower:scss
+// endbower
+
+
+body {
+  padding: 0;
+  background-color: darkgreen;
+}
+
+.btn.outline {
+  border: 1px solid white;
+  color: white;
+  background: transparent;
+
+  &:hover, &:focus, &:active, &.active {
+    color: gold;
+    border-color: gold;
+  }
+
+}
+
+a {
+  color: gold;
+
+  &:hover, &:visited, &:focus {
+    text-decoration: none;
+    color: goldenrod;
+  }
+}
+
+.about { color: white; }
+
+.inactive > * { opacity: 0.4; }
+
+.deckContainer  {
+
+  height: 240px;
+
+  &.player { height: 280px; }
+
+  h3 { color: gold;}
+
+  h4 { color: white; }
+
+  &.dealer {
+    .deck { top: -40px; }
+  }
+
+  .deck { position: relative; }
+
+  .playerActions {
+    position: absolute;
+    bottom: 0;
+  }
+
+  img.deckCard {
+    position: absolute;
+    width: 100px;
+    left: -25px;
+  }
+
+  @for $i from 1 through 8 {
+    .deck:nth-of-type(#{$i}) > img.deckCard  {
+      top: $i * 20px + 25px;
+      left: ($i - 1) * 20px;
+    }
+  }
+
+}
+
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header {
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+
+}
+
+
+
+
+.animate-repeat {
+  line-height:40px;
+  list-style:none;
+  -webkit-transition: 1s linear all;
+  transition: 1s linear all;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  -webkit-transition:all linear 0.3s;
+  transition:all linear 0.3s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity:0;
+  max-height:0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity:1;
+  max-height:40px;
+}
+.animate-repeat.ng-leave-stagger {
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
+}
+.animate-repeat.ng-enter-stagger {
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
+}
+
+
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}

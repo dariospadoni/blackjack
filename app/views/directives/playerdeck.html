@@ -1,0 +1,16 @@
+<div class="deckContainer player">
+
+  <h4> {{player.name}} </h4>
+
+  <div class="deck animate-repeat" ng-repeat="card in cards">
+    <img class="deckCard" ng-src="images/cards/{{card.file}}" alt="card.name" >
+  </div>
+
+  <div class="playerAction"   ng-show="active && !player.bust">
+    <button class="btn outline" ng-click="hit()">&nbsp;Hit&nbsp;</button>
+    <button class="btn outline" ng-click="stick()">Stick</button>
+  </div>
+
+  <h3> {{result}} </h3>
+
+</div>
